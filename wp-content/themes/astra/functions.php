@@ -212,6 +212,23 @@ function set_acf_settings() {
     acf_update_setting( 'enable_shortcode', true );
 }
 
+<<<<<<< Updated upstream
+=======
+//Stránka Contact Us
+
+function kontakt_hero_nadpis_shortcode() {
+    return '<h1 style="color:white">' . get_field('hero_nadpis', 1924) . '</h1>';
+}
+add_shortcode('kontakt_hero_nadpis', 'kontakt_hero_nadpis_shortcode');
+
+
+// Shortcode pro úvodní frázi
+function kontakt_uvodni_fraze_shortcode() {
+    return '<h3 style="color:white">' . get_field('uvodni_fraze', 1924) . '</h3>';
+}
+add_shortcode('kontakt_uvodni_fraze', 'kontakt_uvodni_fraze_shortcode');
+
+>>>>>>> Stashed changes
 // Shortcode pro nadpis "kontakt_nadpis"
 function kontakt_nadpis_shortcode() {
     return '<h3>' . get_field('kontakt_nadpis', 1924) . '</h3>';
@@ -262,6 +279,7 @@ function kontakt_adresa_shortcode() {
     $adresa_html = '';
 
     if ($adresa_nadpis) {
+<<<<<<< Updated upstream
         $adresa_html .= '<h3 style="margin-bottom: 10px;">' . esc_html($adresa_nadpis) . '</h3>'; // Nastavení mezery pod nadpisem
     }
     if ($misto_bydliste) {
@@ -269,6 +287,16 @@ function kontakt_adresa_shortcode() {
     }
     if ($psc) {
         $adresa_html .= '<p style="font-size: 25px; margin-top: 0;">' . esc_html($psc) . '</p>'; // PSČ bez mezery před ním
+=======
+        $adresa_html .= '<h3 style="margin-bottom: 10px;">' . esc_html($adresa_nadpis) . '</h3>'; 
+    }
+    if ($misto_bydliste) {
+        $adresa_html .= '<p style="font-size: 25px; margin-top: 0; margin-bottom: 5px;">' .
+        esc_html($misto_bydliste) . '</p>'; 
+    }
+    if ($psc) {
+        $adresa_html .= '<p style="font-size: 25px; margin-top: 0;">' . esc_html($psc) . '</p>'; 
+>>>>>>> Stashed changes
     }
 
     return $adresa_html;
@@ -302,13 +330,19 @@ function kontakt_email_shortcode() {
         $email_html .= '<h3>' . esc_html($email_nadpis) . '</h3>';
     }
     if ($email) {
+<<<<<<< Updated upstream
         $email_html .= '<p style="font-size: 25px; margin-top: -40;""><a href="mailto:' . esc_attr($email) . '">' . esc_html($email) . '</a></p>';
+=======
+        $email_html .= '<p style="font-size: 25px; margin-top: -40;"">' 
+        . esc_attr($email) . '">' . esc_html($email) . '</p>';
+>>>>>>> Stashed changes
     }
 
     return $email_html;
 }
 add_shortcode('kontakt_email', 'kontakt_email_shortcode');
 
+<<<<<<< Updated upstream
 function kontakt_hero_nadpis_shortcode() {
     return '<h1 style="color:white">' . get_field('hero_nadpis', 1924) . '</h1>';
 }
@@ -322,6 +356,18 @@ function kontakt_uvodni_fraze_shortcode() {
 add_shortcode('kontakt_uvodni_fraze', 'kontakt_uvodni_fraze_shortcode');
 
 // Shortcode pro načtení mapy (latitude, longitude)
+=======
+
+
+
+
+
+
+
+
+
+//Úvodní stránka
+>>>>>>> Stashed changes
 
 
 // Shortcode pro Nadpis (pro post s ID 2052)
@@ -330,12 +376,15 @@ function uvodka_nadpis_shortcode() {
 }
 add_shortcode('uvodka_nadpis', 'uvodka_nadpis_shortcode');
 
+<<<<<<< Updated upstream
 // Shortcode pro Tlačítko (pro post s ID 2052)
 function uvodka_tlacitko_shortcode() {
     return '<button>' . get_field('tlacitko', 2052) . '</button>';
 }
 add_shortcode('uvodka_tlacitko', 'uvodka_tlacitko_shortcode');
 
+=======
+>>>>>>> Stashed changes
 // Shortcode pro Karta nadpis (pro post s ID 2052)
 function uvodka_karta_nadpis_shortcode() {
     return '<h2>' . get_field('karta_nadpis', 2052) . '</h2>';
@@ -344,7 +393,11 @@ add_shortcode('uvodka_karta_nadpis', 'uvodka_karta_nadpis_shortcode');
 
 // Shortcode pro Karta obsah (pro post s ID 2052)
 function uvodka_karta_obsah_shortcode() {
+<<<<<<< Updated upstream
     return '<h5 style="color:#7A7A7A; weight:thin; font-family:default;">' . get_field('karta_obsah', 2052) . '</h5>';
+=======
+    return '<h5 style="color:#7A7A7A; font-weight:300;">' . get_field('karta_obsah', 2052) . '</h5>';
+>>>>>>> Stashed changes
 }
 add_shortcode('uvodka_karta_obsah', 'uvodka_karta_obsah_shortcode');
 
@@ -364,6 +417,7 @@ function uvodka_specializace_nadpis_shortcode() {
 add_shortcode('uvodka_specializace_nadpis', 'uvodka_specializace_nadpis_shortcode');
 
 function uvodka_karty_nadpis_shortcode() {
+<<<<<<< Updated upstream
     return '<h2>' . get_field('karty_nadpis', 2052) . '</h2>';
 }
 add_shortcode('uvodka_karty_nadpis', 'uvodka_karty_nadpis_shortcode');
@@ -390,11 +444,237 @@ function monoliticke_galerie_shortcode() {
 }
 add_shortcode('monoliticke_galerie', 'monoliticke_galerie_shortcode');
 
+=======
+    return '<h2 style="color:white;text-decoration:underline;">' . get_field('karty_nadpis', 2052) . '</h2>';
+}
+add_shortcode('uvodka_karty_nadpis', 'uvodka_karty_nadpis_shortcode');
+function uvodka_repeater_shortcode() {
+    ob_start();
+
+    $post_id = 2052; // Ručně nastavujeme ID postu, kde máme repeater
+
+    
+    if (have_rows('karty', $post_id)) {
+        
+        ?>
+        <div class="acf-repeater" style="display: flex; flex-wrap:wrap; gap:40px; max-width:1200px; margin:0 auto;">
+            <?php while (have_rows('karty', $post_id)) : the_row();
+                $logo = get_sub_field('logo');
+                $nadpis = get_sub_field('nadpis');
+                $text = get_sub_field('text');
+                ?>
+                <div class="acf-repeater-item" style="width: 30%; min-width:300px; display:flex; flex-direction:column;">
+                    <?php if ($logo): ?>
+                        <div class="icon-wrapper" style="width: 100px; height:100px; background-color:#a00; border-radius:50%; display:flex; justify-content:center; align-items:center; margin-bottom:15px; overflow:hidden;">
+                            <img style="width: 50px;height:50px;object-fit:contain; filter:brightness(0) invert();" src="<?php echo esc_url($logo['url']); ?>"  alt="<?php echo esc_attr($nadpis); ?>">
+                        </div>
+                    <?php endif; ?>
+                    <h3 style="min-height: 50px; display: flex;"><?php echo esc_html($nadpis); ?></h3>
+                    <p style="min-height: 100px;display:flex;"><?php echo esc_html($text); ?></p>
+                </div>
+            <?php endwhile; ?>
+        </div>
+        <?php
+    } else {
+        echo '<pre>Repeater "karty" neexistuje nebo je prázdný.</pre>';
+    }
+
+    return ob_get_clean();
+}
+
+add_shortcode('uvodka_repeater', 'uvodka_repeater_shortcode');
+
+
+
+
+
+
+//Stránka Výstavba rodinných domů na klíč 
+// Shortcode pro Stavby RS-mont nadpis (pro stránku s ID 2162)
+function vystavba_rs_mont_nadpis_shortcode() {
+    return '<h5 style="color:#A9070F;">' . get_field('rs_mont_nadpis', 2162) . '</h5>';
+}
+add_shortcode('vystavba_rs_mont_nadpis', 'vystavba_rs_mont_nadpis_shortcode');
+
+function vystavba_hero_nadpis_shortcode() {
+    return '<h1 style="color:white;">' . get_field('hero_nadpis', 2162) . '</h1>';
+}
+add_shortcode('vystavba_hero_nadpis','vystavba_hero_nadpis_shortcode');
+
+function vystavba_karta_obsah_shortcode() {
+    return '<h5 style="color:#7A7A7A;font-weight:300;">' . get_field('karta_obsah', 2162) . '</h5>';
+}
+add_shortcode('vystavba_karta_obsah','vystavba_karta_obsah_shortcode');
+
+function vystavba_karta_obrazek_shortcode() {
+    $obrazek = get_field('karta_obrazek', 2162);
+    if ($obrazek) {
+        return '<img src="' . esc_url($obrazek['url']) . '" alt="' . esc_attr($obrazek['alt']) . '" style="max-width:100%; height:auto;">';
+    }
+    return ''; // Pokud není obrázek, nic se nezobrazí
+}
+add_shortcode('vystavba_karta_obrazek', 'vystavba_karta_obrazek_shortcode');
+
+
+//Stránka monolitické konstrukce 
+function monoliticke_rs_mont_nadpis_shortcode() {
+    return '<h5 style="color:#A9070F;">' . get_field('rs_mont_nadpis', 2240) . '</h5>';
+}
+add_shortcode('monoliticke_rs_mont_nadpis', 'monoliticke_rs_mont_nadpis_shortcode');
+
+function monoliticke_hero_nadpis_shortcode() {
+    return '<h1 style="color:white;">' . get_field('hero_nadpis', 2240) . '</h1>';
+}
+add_shortcode('monoliticke_hero_nadpis','monoliticke_hero_nadpis_shortcode');
+
+function monoliticke_karta_obsah_shortcode() {
+    return '<h5 style="color:#7A7A7A;font-weight:300;">' . get_field('karta_obsah', 2240) . '</h5>';
+}
+add_shortcode('monoliticke_karta_obsah','monoliticke_karta_obsah_shortcode');
+
+function monoliticke_karta_obrazek_shortcode() {
+    $obrazek = get_field('karta_obrazek', 2240);
+    if ($obrazek) {
+        return '<img src="' . esc_url($obrazek['url']) . '" alt="' . esc_attr($obrazek['alt']) . '" style="max-width:100%; height:auto;">';
+    }
+    return ''; // Pokud není obrázek, nic se nezobrazí
+}
+add_shortcode('monoliticke_karta_obrazek', 'monoliticke_karta_obrazek_shortcode');
+
+
+//Stránka stropy a základy
+function stropy_rs_mont_nadpis_shortcode() {
+    return '<h5 style="color:#A9070F;">' . get_field('rs_mont_nadpis', 2263) . '</h5>';
+}
+add_shortcode('stropy_rs_mont_nadpis', 'stropy_rs_mont_nadpis_shortcode');
+
+function stropy_hero_nadpis_shortcode() {
+    return '<h1 style="color:white;">' . get_field('hero_nadpis', 2263) . '</h1>';
+}
+add_shortcode('stropy_hero_nadpis','stropy_hero_nadpis_shortcode');
+
+function stropy_karta_obsah_shortcode() {
+    return '<h5 style="color:#7A7A7A;font-weight:300;">' . get_field('karta_obsah', 2263) . '</h5>';
+}
+add_shortcode('stropy_karta_obsah','stropy_karta_obsah_shortcode');
+
+function stropy_karta_obrazek_shortcode() {
+    $obrazek = get_field('karta_obrazek', 2263);
+    if ($obrazek) {
+        return '<img src="' . esc_url($obrazek['url']) . '" alt="' . esc_attr($obrazek['alt']) . '" style="max-width:100%; height:auto;">';
+    }
+    return ''; // Pokud není obrázek, nic se nezobrazí
+}
+add_shortcode('stropy_karta_obrazek', 'stropy_karta_obrazek_shortcode');
+
+//Stránka Rekonstrukce a zateplení
+function rekonstrukce_rs_mont_nadpis_shortcode() {
+    return '<h5 style="color:#A9070F;">' . get_field('rs_mont_nadpis', 2271) . '</h5>';
+}
+add_shortcode('rekonstrukce_rs_mont_nadpis', 'rekonstrukce_rs_mont_nadpis_shortcode');
+
+function rekonstrukce_hero_nadpis_shortcode() {
+    return '<h1 style="color:white;">' . get_field('hero_nadpis', 2271) . '</h1>';
+}
+add_shortcode('rekonstrukce_hero_nadpis','rekonstrukce_hero_nadpis_shortcode');
+
+function rekonstrukce_karta_obsah_shortcode() {
+    return '<h5 style="color:#7A7A7A;font-weight:300;">' . get_field('karta_obsah', 2271) . '</h5>';
+}
+add_shortcode('rekonstrukce_karta_obsah','rekonstrukce_karta_obsah_shortcode');
+
+function rekonstrukce_karta_obrazek_shortcode() {
+    $obrazek = get_field('karta_obrazek', 2271);
+    if ($obrazek) {
+        return '<img src="' . esc_url($obrazek['url']) . '" alt="' . esc_attr($obrazek['alt']) . '" style="max-width:100%; height:auto;">';
+    }
+    return ''; // Pokud není obrázek, nic se nezobrazí
+}
+add_shortcode('rekonstrukce_karta_obrazek', 'rekonstrukce_karta_obrazek_shortcode');
+
+
+//Stránka Obklady a dlažby
+function obklady_rs_mont_nadpis_shortcode() {
+    return '<h5 style="color:#A9070F;">' . get_field('rs_mont_nadpis', 2278) . '</h5>';
+}
+add_shortcode('obklady_rs_mont_nadpis', 'obklady_rs_mont_nadpis_shortcode');
+
+function obklady_hero_nadpis_shortcode() {
+    return '<h1 style="color:white;">' . get_field('hero_nadpis', 2278) . '</h1>';
+}
+add_shortcode('obklady_hero_nadpis','obklady_hero_nadpis_shortcode');
+
+function obklady_karta_obsah_shortcode() {
+    return '<h5 style="color:#7A7A7A; font-weight:300;">' . get_field('karta_obsah', 2278) . '</h5>';
+}
+add_shortcode('obklady_karta_obsah','obklady_karta_obsah_shortcode');
+
+function obklady_karta_obrazek_shortcode() {
+    $obrazek = get_field('karta_obrazek', 2278);
+    if ($obrazek) {
+        return '<img src="' . esc_url($obrazek['url']) . '" alt="' . esc_attr($obrazek['alt']) . '" style="max-width:100%; height:auto;">';
+    }
+    return ''; // Pokud není obrázek, nic se nezobrazí
+}
+add_shortcode('obklady_karta_obrazek', 'obklady_karta_obrazek_shortcode');
+
+//Stránka Výkopové práce
+function vykopove_rs_mont_nadpis_shortcode() {
+    return '<h5 style="color:#A9070F;">' . get_field('rs_mont_nadpis', 2291) . '</h5>';
+}
+add_shortcode('vykopove_rs_mont_nadpis', 'vykopove_rs_mont_nadpis_shortcode');
+
+function vykopove_hero_nadpis_shortcode() {
+    return '<h1 style="color:white;">' . get_field('hero_nadpis', 2291) . '</h1>';
+}
+add_shortcode('vykopove_hero_nadpis','vykopove_hero_nadpis_shortcode');
+
+function vykopove_karta_obsah_shortcode() {
+    return '<h5 style="color:#7A7A7A; font-weight:300;">' . get_field('karta_obsah', 2291) . '</h5>';
+}
+add_shortcode('vykopove_karta_obsah','vykopove_karta_obsah_shortcode');
+
+function vykopove_karta_obrazek_shortcode() {
+    $obrazek = get_field('karta_obrazek', 2291);
+    if ($obrazek) {
+        return '<img src="' . esc_url($obrazek['url']) . '" alt="' . esc_attr($obrazek['alt']) . '" style="max-width:100%; height:auto;">';
+    }
+    return ''; // Pokud není obrázek, nic se nezobrazí
+}
+add_shortcode('vykopove_karta_obrazek', 'vykopove_karta_obrazek_shortcode');
+
+
+//Stránka Kontejnerová doprava
+function kontejnery_rs_mont_nadpis_shortcode() {
+    return '<h5 style="color:#A9070F;">' . get_field('rs_mont_nadpis', 2301) . '</h5>';
+}
+add_shortcode('kontejnery_rs_mont_nadpis', 'kontejnery_rs_mont_nadpis_shortcode');
+
+function kontejnery_hero_nadpis_shortcode() {
+    return '<h1 style="color:white;">' . get_field('hero_nadpis', 2301) . '</h1>';
+}
+add_shortcode('kontejnery_hero_nadpis','kontejnery_hero_nadpis_shortcode');
+
+function kontejnery_karta_obsah_shortcode() {
+    return '<h5 style="color:#7A7A7A; font-weight:300;">' . get_field('karta_obsah', 2301) . '</h5>';
+}
+add_shortcode('kontejnery_karta_obsah','kontejnery_karta_obsah_shortcode');
+
+function kontejnery_karta_obrazek_shortcode() {
+    $obrazek = get_field('karta_obrazek', 2301);
+    if ($obrazek) {
+        return '<img src="' . esc_url($obrazek['url']) . '" alt="' . esc_attr($obrazek['alt']) . '" style="max-width:100%; height:auto;">';
+    }
+    return ''; // Pokud není obrázek, nic se nezobrazí
+}
+add_shortcode('kontejnery_karta_obrazek', 'kontejnery_karta_obrazek_shortcode');
+>>>>>>> Stashed changes
 // Shortcode pro ACF Icon Boxes s individuálním obsahem pro každý box
 // Shortcode pro ACF Icon Boxes s individuálním obsahem pro každý box
 
 
 ?>
+<<<<<<< Updated upstream
 <style>
     .monoliticke-galerie {
     display: grid;
@@ -421,3 +701,5 @@ add_shortcode('monoliticke_galerie', 'monoliticke_galerie_shortcode');
 }
 
 </style>
+=======
+>>>>>>> Stashed changes
